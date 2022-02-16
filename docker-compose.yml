@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+# De eerste service is de webserver (met PHP)
+  web:
+#   We gebruiken de Dockerfile voor het bouwen van de webserver
+    build:
+      context: .
+      dockerfile: Dockerfile
+#   We forwarden lokaal verkeer op poort 80 naar poort 80 van de container
+    ports:
+      - "80:80"
+#   We mount de huidige folder (./) naar de Apache rootfolder (/var/www), voor live update functionaliteit
+    volumes:
+      - ./:/var/www/
+# De tweede service is de database server (MySQL)
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hello-world-db
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+  # De derde service is Adminer, een alternatief voor PhpMyAdmin
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+# Elke keer dat we iets veranderen aan de Docker files de volgende drie terminal commando's uitvoeren:
+
+# docker-compose down
+# docker-compose build
+# docker-compose up
+
+# website bekijken via localhost
+# database managen via localhost:8080
+
+
