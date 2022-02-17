@@ -1,5 +1,5 @@
 # Eerst importeren we een bestaande PHP image met Apache
-FROM php:7.4-apache
+FROM php:7.2-apache
 
 # Dan kopiëren we de huidige folder naar de www-folder in onze container (waar Apache de webbestanden heeft staan)
 COPY . /var/www

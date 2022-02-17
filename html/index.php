@@ -1,6 +1,6 @@
 <?php
 
-echo '<h1>WE ARE IN DOCKER BUSINESS, BABY!</h1>';
+echo '<h1>WE ARE IN DOCKER BUSINESS, KENNY!</h1>';
 
 // Deze gegevens zijn afkomstig uit docker-compose.yml
 $servername = "db";
@@ -16,4 +16,3 @@ try {
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-?>
