@@ -1,6 +1,6 @@
 <?php
 
-echo '<h1>WE ARE IN DOCKER BUSINESS, KENNY!</h1>';
+echo '<h1>PORTFOLIO VAN [vul hier je naam in]</h1>';
 
 // Deze gegevens zijn afkomstig uit docker-compose.yml
 $servername = "db";
